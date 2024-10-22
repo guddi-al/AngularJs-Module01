@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html ng-app="employeePortal">
+<head>
+    <title>Employee Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+    <div ng-controller="EmployeeController">
+        <h1>Employee Portal</h1>
+        <input type="text" ng-model="employee.name" placeholder="Name">
+        <input type="email" ng-model="employee.email" placeholder="Email">
+        <button ng-click="addEmployee()">Add Employee</button>
+        <ul>
+            <li ng-repeat="emp in employees track by $index">
+                {{ emp.name }} - {{ emp.email }}
+                <button ng-click="removeEmployee($index)">Remove</button>
+            </li>
+        </ul>
+
+        <!-- Simple Button to Change a Message -->
+        <button ng-click="changeMessage()">Click Me!</button>
+        <p>{{ testMessage }}</p>
+    </div>
+</body>
+</html>
